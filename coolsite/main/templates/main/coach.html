@@ -1,0 +1,22 @@
+{% extends 'main/base.html' %} {% block content%}
+
+<h1>Преподаватели</h1>
+<h6></h6>
+
+  {% for row in data %}
+  <div class="lesson_block" style="margin-top: 20px;">
+      <div class="left">
+        <p><span class="nam"><span style="color: #00263a;">{{row.name}}</span></p></span>
+        <h5>{{row.about}}</h5>
+      </div>
+      <div class="right">
+        
+  
+     
+        
+      </div>
+  </div>
+      {% endfor %}
+
+
+{% endblock %}

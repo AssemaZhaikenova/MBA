@@ -1,0 +1,50 @@
+{% extends 'main/base.html' %} {% block content%}
+
+<h1>Занятия</h1>
+<h6></h6>
+
+<div class="contain">
+
+
+      <div class="111">
+  <form method="get">
+    {{ lesson_filter.form }}
+    <button type="submit">Submit </button>
+  </form>
+  </div>
+
+
+  {% for row in data %}
+  <div class="lesson_block">
+    <div class="left">
+      <p><span class="nam">{{row.discipline}}</span></p>
+      <p><span class="adit">{{row.city}}</span></p>
+      <p>{{row.listeners_count}}</p>
+      <p><span class="adit">{{row.teacher}}</span></p>
+      
+    </div>
+    <div class="right">
+      <div class="left">
+        <span class="adit">Дата начала:</span>
+        <span class="adit">Дата окончания:</span>
+        <span class="adit">Время начала:</span>
+        <span class="adit">Группа</span>
+        
+      </div>
+      <div class="left">
+      <h4>{{row.start_date}}</h4>
+      <h4>{{row.end_date}}</h4>
+      <h4>{{row.start_time}}</h4>
+      <h4>{{row.group}}</h4>
+  
+      </div>
+      <a href="{% url 'main-addrequest' %}"><button type="submit">Подать заявку</button></a>
+      
+    </div>
+    
+  </div>
+
+  {% endfor %}
+</div>
+
+{% endblock %}
