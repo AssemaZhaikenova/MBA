@@ -1,0 +1,50 @@
+{% extends 'main/base.html' %} {% block content%}
+
+<h1>Мои Занятия</h1>
+
+<form method="get" action="/mylessons">
+  <select>
+    <option disabled selected value>-- Дисциплина --</option>
+    {% for row in data %}
+    <option>{{row.discipline}}</option>
+    {% endfor %}
+  </select>
+  <button type="submit" class="btn btn-success">Применить</button>
+</form>
+
+<div class="contain">
+
+  {% for row in data %}
+  <div class="lesson_block">
+    <div class="left">
+      <p><span class="nam">{{row.discipline}}</p></span>
+      <p><span class="adit">{{row.city}}</span></p>
+      <p>{{row.listeners_count}}</p>
+      <p><span class="adit">{{row.teacher}}</span></p>
+      
+    </div>
+    <div class="right">
+      <div class="left">
+        <span class="adit">Дата начала:</span>
+        <span class="adit">Дата окончания:</span>
+        <span class="adit">Время начала:</span>
+        <span class="adit">Группа</span>
+        
+      </div>
+      <div class="left">
+      <h4>{{row.start_date}}</h4>
+      <h4>{{row.end_date}}</h4>
+      <h4>{{row.start_time}}</h4>
+      <h4>{{row.group}}</h4>
+      
+      </div>
+      <h5>В процессе</h5>
+      
+    </div>
+    
+  </div>
+
+  {% endfor %}
+</div>
+
+{% endblock %}
